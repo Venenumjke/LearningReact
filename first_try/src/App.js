@@ -1,25 +1,28 @@
 import React, { useState } from 'react'
-import Counter from '../src/components/Counter'
-import ClassCounter from '../src/components/ClassCounter'
+import Counter from './components/Counter'
+import ClassCounter from './components/ClassCounter'
+import './styles/App.css'
+import PostItem from './components/PostItem'
+import PostList from './components/PostList'
 function App() {
-  const [value, setValue] = useState('Текст в инпуте')
+	const [posts, setPosts] = useState([
+		{id: 1, tittle: 'Javascript', body: 'Description'},
+		{id: 2, tittle: 'Javascript 2', body: 'Description'},
+		{id: 3, tittle: 'Javascript 3', body: 'Description'},
+	])
+
 
   return (
    <div className='app'>
-     <div className='post'>
-       <div className='post__content'>
-         <stropng>1. Javascript</stropng>
-         <div>
-           Javascript - язык програмированния
-         </div>
-       </div>
-       <div className='post__btns'>
-         <button>Удалить</button>
-       </div>
-     </div>
-     <Counter/>
+	   <form>
+		   <input type='text' placeholder='Название поста'></input>
+		   <input type='text' placeholder='Описание поста'></input>
+		   <button>Создать пост</button>
+	   </form>
+	   <PostList posts={posts} title='Посты про JS'/>
    </div>
   );
 }
+
 
 export default App;
