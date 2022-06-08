@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from 'react'
+import Counter from '../src/components/Counter'
+import ClassCounter from '../src/components/ClassCounter'
 function App() {
+  const [value, setValue] = useState('Текст в инпуте')
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <div className='app'>
+     <div className='post'>
+       <div className='post__content'>
+         <stropng>1. Javascript</stropng>
+         <div>
+           Javascript - язык програмированния
+         </div>
+       </div>
+       <div className='post__btns'>
+         <button>Удалить</button>
+       </div>
+     </div>
+     <Counter/>
+   </div>
   );
 }
 
