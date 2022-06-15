@@ -18,26 +18,27 @@ const MOCK_DATA = {
 }
 
 const TranslateTest = memo(() => {
-
         const keys = Object.keys(MOCK_DATA)
         const values = Object.values(MOCK_DATA)
 
         const [isStart, setIsStart] = useState(false)
         const [status, setStatus] = useState('Нажмите старт для начала теста')
-        const [rightTranslate, setRightTranslate] = useState(false)
-        const [answer, setAnswer] = useState('')
-
+        const [rightTranslate, setRightTranslate] = useState()
+        const [inputText, setInputText] = useState('')
         const callPrompt = useCallback(() => {
             setIsStart(true)
         }, [])
 
         const onAnswer = useCallback(() => {
-            if (answer.toLowerCase() === values[0]) {
+            console.log({inputText})
+            if (inputText.toLowerCase() === values[0]) {
                 setRightTranslate(true)
             } else {
                 setRightTranslate(false)
+                
             }
-        }, [status, answer])
+            
+        }, [status, inputText])
 
         useEffect(() => {
             if (isStart) {
@@ -54,21 +55,19 @@ const TranslateTest = memo(() => {
                     <p className="tittle">
                         Тест на знание слов
                     </p>
-                    <Button onClick={callPrompt}>
-                        Старт
-                    </Button>
+                    <Button onPress={callPrompt} text={'Старт'}/>
                 </div>
                 <div className='container_input'>
                     <Input
-                        value={answer}
-                        onChange={e => setAnswer(e.target.value)}
+                        value={inputText}
+                        onChange={e => setInputText(e.target.value)}
                     />
-                    <Button onClick={onAnswer}>Ввод</Button>
+                    <Button onPress={onAnswer} text={'Ввод'}/>
                 </div>
                 <div className='status'>
                     <h3>{status}</h3>
                 </div>
-                {isStart && (
+                {isStart && rightTranslate !== undefined &&(
                     <div className='status'>
                         <h3>{rightTranslate ? 'Good' : 'Bad'}</h3>
                     </div>
