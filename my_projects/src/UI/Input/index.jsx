@@ -1,11 +1,11 @@
 import React from 'react'
-import './styles.css'
-const Input = (props) => {
+import styles from './style'
+const Input = React.forwardRef((props, ref) => {
 
     return (
-        <input {...props} type="text" placeholder='Введите слово' />
+        <input style={styles.myInput} ref={ref} {...props} type="text" placeholder='Введите слово' />
     )
 
-}
+})
 
 export default Input

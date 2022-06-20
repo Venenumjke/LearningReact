@@ -1,16 +1,11 @@
 import React from 'react'
-import { useCallback } from 'react'
-import './styles.css'
+import styles from './style'
 
-const Button = ({text = 'xx', onPress=() => {}}) => {
-    
-    const onClick = useCallback(() => {
-        console.log('Работает onPress');
-        onPress()
-    }, [] )
+
+const Button = ({text = 'xx', ...props}) => {
 
     return (
-        <button className='buttonWrapper' onClick={onClick} >
+        <button style={styles.buttonWrapper} {...props} >
             {text}
         </button>
     )
