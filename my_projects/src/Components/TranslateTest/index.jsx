@@ -11,7 +11,14 @@ const MOCK_DATA = {
     mother:'мама',
     father:'папа',
     brother:'брат',
-    jackal:'шакал',
+    syringe:'шприц',
+    medicine:'лекарство',
+    glass:'стекло',
+    train:'поезд',
+    stomach:'желудок',
+    teeth:'зубы',
+    hair:'волосы',
+    leg:'нога',
 }
 
 const keys = Object.keys(MOCK_DATA)
