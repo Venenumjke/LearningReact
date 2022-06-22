@@ -1,5 +1,7 @@
 import React from 'react'
-import styles from './style'
+
+import styles from './styles'
+
 const Input = React.forwardRef((props, ref) => {
 
     return (

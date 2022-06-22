@@ -1,7 +1,9 @@
 import React, {useState, useCallback, useEffect, memo, useRef,} from 'react'
-import Button from '../UI/Button'
-import Input from '../UI/Input'
-import style from './style';
+import Button from '../Button'
+import Input from '../Input'
+
+import style from './styles';
+
 let score
 let aroundScore
 
@@ -35,7 +37,7 @@ const TranslateTest = memo(() => {
         const [fail, setFail] = useState(0)
         const [scoreArr, setScoreArr] = useState([])
         const focusRef = useRef(null)
- 
+
 
         const pushingArray = useCallback(() => {
             setScoreArr([...scoreArr, 5 - fail])
@@ -100,7 +102,7 @@ const TranslateTest = memo(() => {
                     <p style={style.tittle}>
                         Тест на знание слов
                     </p>
-                    <Button disabled={isStart ? true : false} onClick={callPrompt} text={'Старт'}/>
+                    <Button disabled={isStart} onPress={callPrompt} text={'Старт'}/>
                 </div>
                 <div style={style.container_input}>
                     <Input
@@ -108,7 +110,7 @@ const TranslateTest = memo(() => {
                         value={inputText}
                         onChange={e => setInputText(e.target.value)}
                     />
-                    <Button disabled={isStart ? false : true} onClick={onAnswer} text={'Ввод'}/>
+                    <Button disabled={!isStart} onPress={onAnswer} text={'Ввод'}/>
                 </div>
                 <div style={style.status}>
                     <h3>{status}</h3>

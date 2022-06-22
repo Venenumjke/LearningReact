@@ -1,10 +1,10 @@
 import React from 'react'
-import TranslateTest from './Components/TranslateTest'
+import MainScreen from "./screens/MainScreen"
 
 function App() {
   return (
     <div className="App">
-      <TranslateTest/>
+      <MainScreen/>
     </div>
   );
 }
