@@ -1,4 +1,4 @@
-import React, {useState, useCallback, useEffect, memo, useRef} from 'react'
+import React, {useState, useCallback, useEffect, memo, useRef,} from 'react'
 import Button from '../UI/Button'
 import Input from '../UI/Input'
 import style from './style';
@@ -21,8 +21,10 @@ const MOCK_DATA = {
     leg:'нога',
 }
 
+
 const keys = Object.keys(MOCK_DATA)
 const values = Object.values(MOCK_DATA)
+
 
 const TranslateTest = memo(() => {
         const [isStart, setIsStart] = useState(false)
@@ -33,6 +35,7 @@ const TranslateTest = memo(() => {
         const [fail, setFail] = useState(0)
         const [scoreArr, setScoreArr] = useState([])
         const focusRef = useRef(null)
+ 
 
         const pushingArray = useCallback(() => {
             setScoreArr([...scoreArr, 5 - fail])
