@@ -105,7 +105,7 @@ const TranslateTest = memo(() => {
         <TextInput
           ref={focusRef}
           value={inputValue}
-          onChange={setInputValue}
+          onChange={(e) => setInputValue(e.target.value)}
         />
         <Button disabled={!isStart} onPress={onAnswer} text="Ввод" outline />
       </div>
