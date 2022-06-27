@@ -1,17 +1,17 @@
 import React, { memo, useCallback } from 'react';
-import styles from './style';
+import { ButtonWrapper, ButtonText } from './styles';
 
-// eslint-disable-next-line react/prop-types
-const Button = memo(({ text = '', onPress = () => console.log('Please attach method'), disabled = false }) => {
+const Button = memo(({
+  text = '', onPress = () => console.log('Please attach method'), disabled = false, primary, outline,
+}) => {
   const onPressHandle = useCallback(() => {
     onPress();
   }, [onPress]);
 
   return (
-  // eslint-disable-next-line react/button-has-type
-    <button disabled={disabled} style={styles.buttonWrapper} onClick={onPressHandle}>
-      <p style={styles.buttonText}>{text}</p>
-    </button>
+    <ButtonWrapper disabled={disabled} onClick={onPressHandle} primary={primary} outline={outline}>
+      <ButtonText>{text}</ButtonText>
+    </ButtonWrapper>
   );
 });
 export default Button;

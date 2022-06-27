@@ -99,15 +99,15 @@ const TranslateTest = memo(() => {
         <p style={style.tittle}>
           Тест на знание слов
         </p>
-        <Button disabled={isStart} onPress={callPrompt} text="Старт" />
+        <Button disabled={isStart} onPress={callPrompt} text="Старт" primary />
       </div>
       <div style={style.containerInput}>
         <TextInput
           ref={focusRef}
           value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
+          onChange={setInputValue}
         />
-        <Button disabled={!isStart} onPress={onAnswer} text="Ввод" />
+        <Button disabled={!isStart} onPress={onAnswer} text="Ввод" outline />
       </div>
       <div style={style.status}>
         <h3>{status}</h3>

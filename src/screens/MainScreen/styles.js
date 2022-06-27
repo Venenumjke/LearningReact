@@ -1,18 +1,12 @@
-const styles = {
-  contentWrapper: {
-    padding: 0,
-    margin: 0,
-  },
-  header: {
-    width: '100%',
-    height: 100,
-    backgroundColor: 'teal',
-  },
-  titleText: {
-    paddingTop: 40,
-    margin: 0,
-    textAlign: 'center',
-  },
-};
+import styled from 'styled-components';
 
-export default styles;
+export const Header = styled.header`
+    width: 100%;
+    height: 100px;
+    background-color: teal;
+  `;
+export const HeaderTitle = styled.h4`
+    padding-top: 40px;
+    margin: 0;
+    text-align: center;
+  `;

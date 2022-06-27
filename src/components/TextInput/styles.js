@@ -1,14 +1,19 @@
-const styles = {
-  myInput: {
-    width: '30%',
-    height: 30,
-    borderRadius: 15,
-    paddingLeft: 10,
-    border: '1px solid teal',
-    backgroundColor: 'rgba(0, 128, 128, 0.13)',
-    transition: ' 0.7s',
-    marginRight: '20px',
-  },
-};
+import styled from 'styled-components';
 
-export default styles;
+// eslint-disable-next-line import/prefer-default-export
+export const InputWrapper = styled.input`
+  width: 30%;
+  height: 30px;
+  border-radius: 15px;
+  padding-left: 10px;
+  border: 1px solid teal;
+  background-color: rgba(0, 128, 128, 0.13);
+  margin-right: 20px;
+  &::placeholder {
+    color: teal;
+    caret: black;
+  }
+  &:focus {
+    outline: none;
+  }
+`;
