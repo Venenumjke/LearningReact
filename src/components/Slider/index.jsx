@@ -8,8 +8,11 @@ import styles from './styles';
 
 const Slider = memo(() => {
   const [offset, setOffset] = useState(0);
+  const [stopTimer, setStopTimer] = useState(false);
+
   const SLIDE_WIDTH = 600;
-  const DURATION = 2000;
+  const DURATION = 3000;
+  const STOP_DURATION = 5000;
 
   const offsetStyle = {
     display: 'flex',
@@ -31,6 +34,7 @@ const Slider = memo(() => {
     } else {
       setOffset(offset + SLIDE_WIDTH);
     }
+    setStopTimer(true);
   }, [offset]);
 
   const moveRightSliderItem = useCallback(() => {
@@ -39,12 +43,19 @@ const Slider = memo(() => {
     } else {
       setOffset(offset - SLIDE_WIDTH);
     }
+    setStopTimer(true);
   }, [offset]);
 
   useEffect(() => {
     const autoMoveSlides = setTimeout(autoMover, DURATION);
-    console.log('effect');
-  }, [autoMover]);
+    if (stopTimer) {
+      clearTimeout(autoMoveSlides);
+      setTimeout(() => {
+        setStopTimer(false);
+      }, STOP_DURATION);
+    }
+    console.log(stopTimer);
+  }, [autoMover, offset, stopTimer]);
 
   return (
     <div style={styles.main}>
