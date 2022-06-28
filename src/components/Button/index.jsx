@@ -8,7 +8,7 @@ const Button = memo(({ text = '', onPress = () => console.log('Please attach met
   }, [onPress]);
 
   return (
-  // eslint-disable-next-line react/button-has-type
+    // eslint-disable-next-line react/button-has-type
     <button disabled={disabled} style={styles.buttonWrapper} onClick={onPressHandle}>
       <p style={styles.buttonText}>{text}</p>
     </button>

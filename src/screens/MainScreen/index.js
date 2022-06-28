@@ -1,4 +1,5 @@
 import React from 'react';
+import Slider from '../../components/Slider';
 import TranslateTest from '../../components/TranslateTest';
 
 import styles from './styles';
@@ -11,6 +12,7 @@ function mainScreen() {
         <h4 style={styles.titleText}>Header</h4>
       </header>
       <TranslateTest />
+      <Slider />
     </div>
   );
 }

@@ -3,28 +3,8 @@ import React, {
 } from 'react';
 
 import Button from '../Button';
-
 import style from './styles';
 import TextInput from '../TextInput';
-
-const MOCK_DATA = {
-  tree: 'дерево',
-  grass: 'трава',
-  mother: 'мама',
-  father: 'папа',
-  brother: 'брат',
-  syringe: 'шприц',
-  medicine: 'лекарство',
-  glass: 'стекло',
-  train: 'поезд',
-  stomach: 'желудок',
-  teeth: 'зубы',
-  hair: 'волосы',
-  leg: 'нога',
-};
-
-const keys = Object.keys(MOCK_DATA);
-const values = Object.values(MOCK_DATA);
 
 const TranslateTest = memo(() => {
   const [isStart, setIsStart] = useState(false);
@@ -36,6 +16,25 @@ const TranslateTest = memo(() => {
   const [fail, setFail] = useState(0);
   const [scoreArr, setScoreArr] = useState([]);
   const focusRef = useRef(null);
+
+  const MOCK_DATA = {
+    tree: 'дерево',
+    grass: 'трава',
+    mother: 'мама',
+    father: 'папа',
+    brother: 'брат',
+    syringe: 'шприц',
+    medicine: 'лекарство',
+    glass: 'стекло',
+    train: 'поезд',
+    stomach: 'желудок',
+    teeth: 'зубы',
+    hair: 'волосы',
+    leg: 'нога',
+  };
+
+  const keys = Object.keys(MOCK_DATA);
+  const values = Object.values(MOCK_DATA);
 
   const pushingArray = useCallback(() => {
     setScoreArr([...scoreArr, 5 - fail]);
