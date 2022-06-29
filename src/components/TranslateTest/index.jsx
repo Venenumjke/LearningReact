@@ -98,7 +98,7 @@ const TranslateTest = memo(() => {
         <p style={style.tittle}>
           Тест на знание слов
         </p>
-        <Button disabled={isStart} onPress={callPrompt} text="Старт" />
+        <Button disabled={isStart} onPress={callPrompt} text="Старт" primary />
       </div>
       <div style={style.containerInput}>
         <TextInput
@@ -106,7 +106,7 @@ const TranslateTest = memo(() => {
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
         />
-        <Button disabled={!isStart} onPress={onAnswer} text="Ввод" />
+        <Button disabled={!isStart} onPress={onAnswer} text="Ввод" outline />
       </div>
       <div style={style.status}>
         <h3>{status}</h3>
