@@ -21,5 +21,6 @@ module.exports = {
     'react/prop-types': 0,
     'react/jsx-filename-extension': 0,
     'react/jsx-props-no-spreading': 0,
+    'linebreak-style': 0,
   },
 };
