@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, {
   memo, useCallback, useState, useEffect,
 } from 'react';
@@ -11,8 +10,7 @@ const Slider = memo(() => {
   const [stopTimer, setStopTimer] = useState(false);
 
   const SLIDE_WIDTH = 600;
-  const DURATION = 3000;
-  const STOP_DURATION = 5000;
+  const DURATION = 4000;
 
   const offsetStyle = {
     display: 'flex',
@@ -50,22 +48,18 @@ const Slider = memo(() => {
     const autoMoveSlides = setTimeout(autoMover, DURATION);
     if (stopTimer) {
       clearTimeout(autoMoveSlides);
-      setTimeout(() => {
-        setStopTimer(false);
-      }, STOP_DURATION);
     }
-    console.log(stopTimer);
-  }, [autoMover, offset, stopTimer]);
+  }, [stopTimer, offset]);
 
   return (
     <div style={styles.main}>
-      <Button onPress={moveLeftSliderItem} />
+      <Button onPress={moveLeftSliderItem} text="prev" />
       <div style={styles.container}>
         <div style={offsetStyle}>
           <SliderItem />
         </div>
       </div>
-      <Button onPress={moveRightSliderItem} />
+      <Button onPress={moveRightSliderItem} text="next" />
     </div>
   );
 });
