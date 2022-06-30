@@ -4,6 +4,7 @@ import React, {
 } from 'react';
 import Button from '../Button';
 import SliderItem from '../SliderItem';
+import MotionDiv from '../MotionDiv';
 import { Main, Container } from './styles';
 
 const Slider = memo(() => {
@@ -23,12 +24,6 @@ const Slider = memo(() => {
 
   const MAX_STEP = slideArray.length - 1;
   const MIN_STEP = 0;
-
-  const offsetStyle = {
-    display: 'flex',
-    transform: `translateX(${step * SLIDE_WIDTH}px)`,
-    transition: '0.5s',
-  };
 
   const autoMover = useCallback(() => {
     if (step <= (-MAX_STEP)) {
@@ -75,9 +70,9 @@ const Slider = memo(() => {
     <Main>
       <Button onPress={moveLeftSliderItem} text="prev" />
       <Container>
-        <div style={offsetStyle}>
+        <MotionDiv transform={step * SLIDE_WIDTH}>
           {slideArray.map((slide) => <SliderItem key={slide.id} src={slide.src} />)}
-        </div>
+        </MotionDiv>
       </Container>
       <Button onPress={moveRightSliderItem} text="next" />
     </Main>
