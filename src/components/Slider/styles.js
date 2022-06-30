@@ -1,20 +1,18 @@
-const styles = {
-  main: {
-    width: '760px',
-    margin: '50px auto',
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  container: {
-    height: '400px',
-    width: '600px',
-    display: 'flex',
-    borderRadius: '50px',
-    overflow: 'hidden',
-  },
+import styled from 'styled-components';
 
-};
+export const Main = styled.div`
+width: 760px;
+margin: 50px auto;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+`;
 
-export default styles;
+export const Container = styled.div`
+height: 400px;
+width: 600px;
+display: flex;
+border-radius: 50px;
+overflow: hidden;
+`;

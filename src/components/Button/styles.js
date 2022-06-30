@@ -2,10 +2,10 @@ import styled, { css, keyframes } from 'styled-components';
 
 const Animation = keyframes`
   0% {
-  transform: scale(1);
+    background-color:  rgba(0, 128, 128, 0);
   }
   100% {
-    transform: scale(1.1, 1.1);
+    background-color:  rgba(0, 128, 128, 0.5);
   }
 `;
 

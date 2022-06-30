@@ -1,66 +1,86 @@
+/* eslint-disable global-require */
 import React, {
   memo, useCallback, useState, useEffect,
 } from 'react';
 import Button from '../Button';
 import SliderItem from '../SliderItem';
-import styles from './styles';
+import { Main, Container } from './styles';
 
 const Slider = memo(() => {
-  const [offset, setOffset] = useState(0);
   const [stopTimer, setStopTimer] = useState(false);
-
   const SLIDE_WIDTH = 600;
-  const DURATION = 4000;
+  const DURATION = 2500;
+  const [step, setStep] = useState(0);
+  const STOP_DURATION = 4000;
+
+  const slideArray = [
+    { src: require('../../static/img1.jpg'), id: 1 },
+    { src: require('../../static/img2.jpg'), id: 2 },
+    { src: require('../../static/img3.jpg'), id: 3 },
+    { src: require('../../static/img4.jpg'), id: 4 },
+    { src: require('../../static/img5.jpg'), id: 5 },
+  ];
+
+  const MAX_STEP = slideArray.length - 1;
+  const MIN_STEP = 0;
 
   const offsetStyle = {
     display: 'flex',
-    transform: `translateX(${offset}px)`,
-    transition: '1s',
+    transform: `translateX(${step * SLIDE_WIDTH}px)`,
+    transition: '0.5s',
   };
 
   const autoMover = useCallback(() => {
-    if (offset === -2400) {
-      setOffset(0);
+    if (step <= (-MAX_STEP)) {
+      setStep(MIN_STEP);
     } else {
-      setOffset(offset - SLIDE_WIDTH);
+      setStep(step - 1);
     }
-  }, [offset]);
+  }, [step]);
 
   const moveLeftSliderItem = useCallback(() => {
-    if (offset === 0) {
-      setOffset(-2400);
+    if (step >= MIN_STEP) {
+      setStep(-MAX_STEP);
     } else {
-      setOffset(offset + SLIDE_WIDTH);
+      setStep(step + 1);
     }
     setStopTimer(true);
-  }, [offset]);
+  }, [step]);
 
   const moveRightSliderItem = useCallback(() => {
-    if (offset === -2400) {
-      setOffset(0);
+    if (step <= (-MAX_STEP)) {
+      setStep(MIN_STEP);
     } else {
-      setOffset(offset - SLIDE_WIDTH);
+      setStep(step - 1);
     }
     setStopTimer(true);
-  }, [offset]);
+  }, [step]);
 
   useEffect(() => {
     const autoMoveSlides = setTimeout(autoMover, DURATION);
     if (stopTimer) {
       clearTimeout(autoMoveSlides);
     }
-  }, [stopTimer, offset]);
+  }, [step, stopTimer]);
+
+  useEffect(() => {
+    if (stopTimer) {
+      setTimeout(() => {
+        setStopTimer(false);
+      }, STOP_DURATION);
+    }
+  }, [stopTimer]);
 
   return (
-    <div style={styles.main}>
+    <Main>
       <Button onPress={moveLeftSliderItem} text="prev" />
-      <div style={styles.container}>
+      <Container>
         <div style={offsetStyle}>
-          <SliderItem />
+          {slideArray.map((slide) => <SliderItem key={slide.id} src={slide.src} />)}
         </div>
-      </div>
+      </Container>
       <Button onPress={moveRightSliderItem} text="next" />
-    </div>
+    </Main>
   );
 });
 export default Slider;

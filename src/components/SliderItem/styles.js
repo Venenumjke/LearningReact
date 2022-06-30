@@ -1,13 +1,9 @@
-const styles = {
-  imageBox: {
-    width: '100%',
-    height: '100%',
-    transform: 'translateX(0px)',
-    transition: '1s',
-  },
-  container: {
-    display: 'flex',
-  },
-};
+/* eslint-disable import/prefer-default-export */
+import styled from 'styled-components';
 
-export default styles;
+export const SliderImg = styled.img`
+    width: 100%;
+    height: 100%;
+    transform: translateX(0px);
+    transition: 1s;
+`;

@@ -1,9 +1,12 @@
+/* eslint-disable no-unused-vars */
 import React, {
   useState, useCallback, useEffect, memo, useRef,
 } from 'react';
 
 import Button from '../Button';
-import style from './styles';
+import {
+  Container, ContainerInput, DescriptionDiv, Tittle, Status, StatusText,
+} from './styles';
 import TextInput from '../TextInput';
 
 const TranslateTest = memo(() => {
@@ -93,31 +96,44 @@ const TranslateTest = memo(() => {
   }, [isStart, index]);
 
   return (
-    <div style={style.container}>
-      <div style={style.startDiv}>
-        <p style={style.tittle}>
+    <Container>
+      <DescriptionDiv>
+        <Tittle>
           Тест на знание слов
-        </p>
-        <Button disabled={isStart} onPress={callPrompt} text="Старт" primary />
-      </div>
-      <div style={style.containerInput}>
+        </Tittle>
+        <Button
+          disabled={isStart}
+          onPress={callPrompt}
+          text="Старт"
+        />
+      </DescriptionDiv>
+      <ContainerInput>
         <TextInput
           ref={focusRef}
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
         />
-        <Button disabled={!isStart} onPress={onAnswer} text="Ввод" outline />
-      </div>
-      <div style={style.status}>
+        <Button
+          disabled={!isStart}
+          onPress={onAnswer}
+          text="Ввод"
+        />
+      </ContainerInput>
+      <Status>
         <h3>{status}</h3>
-      </div>
+      </Status>
       {isStart && rightTranslate !== undefined && (
-      <div style={style.status}>
-        <h3 style={style.statusText}>{rightTranslate ? 'Good' : 'Bad'}</h3>
-        <h4 style={style.statusText}>{rightTranslate ? 'next word' : 'try again'}</h4>
-      </div>
+      <Status>
+        <StatusText>
+          {rightTranslate ? 'Good' : 'Bad'}
+        </StatusText>
+        <StatusText>
+          {rightTranslate ? 'next word' : 'try again'}
+
+        </StatusText>
+      </Status>
       )}
-    </div>
+    </Container>
   );
 });
 
