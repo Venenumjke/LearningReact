@@ -1,6 +1,6 @@
+/* eslint-disable import/prefer-default-export */
 import styled from 'styled-components';
 
-// eslint-disable-next-line import/prefer-default-export
 export const InputWrapper = styled.input`
   width: 30%;
   height: 30px;

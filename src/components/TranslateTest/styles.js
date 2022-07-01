@@ -1,56 +1,58 @@
-const styles = {
-  container: {
-    padding: 0,
-    boxSizing: 'border-box',
-    fontFamily: 'Comfortaa, cursive',
-    width: '70%',
-    margin: '0 auto',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  startDiv: {
-    border: '5px solid teal',
-    borderRadius: 50,
-    margin: 30,
-    width: '50%',
-    justifyContent: 'center',
-    height: 100,
-    backgroundColor: 'rgba(0, 128, 128, 0.13)',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  tittle: {
-    width: '70%',
-    textAlign: 'center',
-    marginBottom: 15,
-  },
-  containerInput: {
-    width: '100%',
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  status: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 25,
-    width: '50%',
-    height: 70,
-    textAlign: 'center',
-    backgroundColor: 'rgba(0, 128, 128, 0.266)',
-    borderRadius: 10,
-  },
-  statusText: {
-    margin: 5,
-    padding: 0,
-  },
-};
+import styled from 'styled-components';
 
-export default styles;
+export const Container = styled.div`
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Comfortaa, cursive;
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`;
+
+export const DescriptionDiv = styled.div`
+    border: 5px solid teal;
+    border-radius: 50px;
+    margin: 30px;
+    width: 70%;
+    justify-content: center;
+    height: 100px;
+    background-color: rgba(0, 128, 128, 0.13);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
+
+export const Tittle = styled.p`
+    text-align: center;
+    margin-bottom: 15px;
+`;
+
+export const ContainerInput = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+`;
+
+export const Status = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    width: 50%;
+    height: 70px;
+    text-align: center;
+    background-color: rgba(0, 128, 128, 0.266);
+    border-radius: 10px;
+`;
+
+export const StatusText = styled.h3`
+    margin: 5px;
+    padding: 0;
+`;

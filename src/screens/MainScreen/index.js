@@ -1,6 +1,7 @@
 import React from 'react';
 import { Header, HeaderTitle } from './styles';
 import TranslateTest from '../../components/TranslateTest';
+import Slider from '../../components/Slider';
 
 function mainScreen() {
   return (
@@ -9,6 +10,7 @@ function mainScreen() {
         <HeaderTitle>Header</HeaderTitle>
       </Header>
       <TranslateTest />
+      <Slider />
     </>
   );
 }

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { memo, useCallback } from 'react';
 import { ButtonWrapper, ButtonText } from './styles';
 
