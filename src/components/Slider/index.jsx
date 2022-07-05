@@ -10,9 +10,9 @@ import { Main, Container } from './styles';
 const Slider = memo(() => {
   const [stopTimer, setStopTimer] = useState(false);
   const SLIDE_WIDTH = 600;
-  const DURATION = 2500;
+  const DURATION = 2000;
   const [step, setStep] = useState(0);
-  const STOP_DURATION = 4000;
+  const STOP_DURATION = 7000;
 
   const slideArray = [
     { src: require('../../static/img1.jpg'), id: 1 },
@@ -68,13 +68,13 @@ const Slider = memo(() => {
 
   return (
     <Main>
-      <Button onPress={moveLeftSliderItem} text="prev" />
+      <Button outline onPress={moveLeftSliderItem} text="<" />
       <Container>
         <MotionDiv transform={step * SLIDE_WIDTH}>
           {slideArray.map((slide) => <SliderItem key={slide.id} src={slide.src} />)}
         </MotionDiv>
       </Container>
-      <Button onPress={moveRightSliderItem} text="next" />
+      <Button outline onPress={moveRightSliderItem} text=">" />
     </Main>
   );
 });
