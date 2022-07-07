@@ -1,12 +1,13 @@
+/* eslint-disable import/extensions */
 import React from 'react';
 import MainScreen from './screens/MainScreen';
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
       <MainScreen />
     </div>
   );
-}
+};
 
 export default App;

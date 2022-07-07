@@ -3,10 +3,14 @@
 import React from 'react';
 import { SliderImg } from './styles';
 
-function SliderItem({ src }) {
+function SliderItem({ src }: SliderItemProp) {
   return (
     <SliderImg src={src} alt="#" />
   );
 }
 
 export default SliderItem;
+
+interface SliderItemProp {
+  src: string
+}

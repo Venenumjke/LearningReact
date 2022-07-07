@@ -6,3 +6,7 @@ const TextInput = React.forwardRef((props, ref) => (
 ));
 
 export default TextInput;
+
+interface inputProp {
+  ref: any
+}

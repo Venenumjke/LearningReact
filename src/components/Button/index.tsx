@@ -4,7 +4,7 @@ import { ButtonWrapper, ButtonText } from './styles';
 
 const Button = memo(({
   text = '', onPress = () => console.log('Please attach method'), disabled = false, primary, outline,
-}) => {
+}: ButtonProps) => {
   const onPressHandle = useCallback(() => {
     onPress();
   }, [onPress]);
@@ -16,3 +16,11 @@ const Button = memo(({
   );
 });
 export default Button;
+
+interface ButtonProps {
+  text: string
+  onPress?: () => void
+  disabled?: boolean
+  primary?: boolean
+  outline?: boolean
+}

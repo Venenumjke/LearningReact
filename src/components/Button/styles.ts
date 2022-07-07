@@ -1,5 +1,10 @@
 import styled, { css, keyframes } from 'styled-components';
 
+type typeForProps = {
+  primary?: boolean
+  outline?: boolean
+}
+
 const Animation = keyframes`
   0% {
     background-color:  rgba(0, 128, 128, 0);
@@ -9,7 +14,7 @@ const Animation = keyframes`
   }
 `;
 
-export const ButtonWrapper = styled.button`
+export const ButtonWrapper = styled.button<typeForProps>`
     width: 80px;
     height: 25px;
     border-radius: 15px;
@@ -19,7 +24,7 @@ export const ButtonWrapper = styled.button`
     &:hover {
       animation: ${Animation} 1s;
     }
-    ${({ primary }) => primary && css`
+    ${({ primary}) => primary && css`
         background-color:  rgba(0, 128, 128, 0.13);
         border: 1px solid teal;   
     `}

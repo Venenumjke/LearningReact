@@ -10,17 +10,17 @@ import {
 import TextInput from '../TextInput';
 
 const TranslateTest = memo(() => {
-  const [isStart, setIsStart] = useState(false);
-  const [aroundScore, setAroundScore] = useState(0);
-  const [status, setStatus] = useState('Нажмите старт для начала теста');
-  const [rightTranslate, setRightTranslate] = useState();
-  const [inputValue, setInputValue] = useState('');
-  const [index, setIndex] = useState(0);
-  const [fail, setFail] = useState(0);
-  const [scoreArr, setScoreArr] = useState([]);
-  const focusRef = useRef(null);
+  const [isStart, setIsStart] = useState<boolean>(false);
+  const [aroundScore, setAroundScore] = useState<number>(0);
+  const [status, setStatus] = useState<string>('Нажмите старт для начала теста');
+  const [rightTranslate, setRightTranslate] = useState<boolean>();
+  const [inputValue, setInputValue] = useState<string>('');
+  const [index, setIndex] = useState<number>(0);
+  const [fail, setFail] = useState<number>(0);
+  const [scoreArr, setScoreArr] = useState<Array<number>>([]);
+  const focusRef = useRef<HTMLInputElement>(null);
 
-  const MOCK_DATA = {
+  const MOCK_DATA: object = {
     tree: 'дерево',
     grass: 'трава',
     mother: 'мама',
@@ -36,8 +36,8 @@ const TranslateTest = memo(() => {
     leg: 'нога',
   };
 
-  const keys = Object.keys(MOCK_DATA);
-  const values = Object.values(MOCK_DATA);
+  const keys: string[] = Object.keys(MOCK_DATA);
+  const values :string[] = Object.values(MOCK_DATA);
 
   const pushingArray = useCallback(() => {
     setScoreArr([...scoreArr, 5 - fail]);
@@ -48,7 +48,7 @@ const TranslateTest = memo(() => {
     setAroundScore(Math.round(score));
   }, [scoreArr]);
 
-  const callPrompt = useCallback(() => {
+  const callPrompt = useCallback((): void => {
     setIndex(0);
     setFail(0);
     setScoreArr([]);
@@ -66,8 +66,10 @@ const TranslateTest = memo(() => {
       setFail(fail + 1);
       setInputValue('');
     }
+    if (focusRef && focusRef.current) {
     focusRef.current.focus();
-  }, [inputValue, index, fail]);
+  }
+}, [inputValue, index, fail]);
 
   useEffect(() => {
     if (fail >= 3) {

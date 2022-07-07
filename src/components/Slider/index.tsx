@@ -8,11 +8,11 @@ import MotionDiv from '../MotionDiv';
 import { Main, Container } from './styles';
 
 const Slider = memo(() => {
-  const [stopTimer, setStopTimer] = useState(false);
-  const SLIDE_WIDTH = 600;
-  const DURATION = 2000;
-  const [step, setStep] = useState(0);
-  const STOP_DURATION = 7000;
+  const [stopTimer, setStopTimer] = useState<boolean>(false);
+  const SLIDE_WIDTH: number = 600;
+  const DURATION: number = 2000;
+  const [step, setStep] = useState<number>(0);
+  const STOP_DURATION: number = 7000;
 
   const slideArray = [
     { src: require('../../static/img1.jpg'), id: 1 },
@@ -22,8 +22,8 @@ const Slider = memo(() => {
     { src: require('../../static/img5.jpg'), id: 5 },
   ];
 
-  const MAX_STEP = slideArray.length - 1;
-  const MIN_STEP = 0;
+  const MAX_STEP: number = slideArray.length - 1;
+  const MIN_STEP: number = 0;
 
   const autoMover = useCallback(() => {
     if (step <= (-MAX_STEP)) {
