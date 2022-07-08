@@ -7,12 +7,14 @@ import SliderItem from '../SliderItem';
 import MotionDiv from '../MotionDiv';
 import { Main, Container } from './styles';
 
+const STOP_DURATION = 4000;
+const DURATION = 2500;
+const SLIDE_WIDTH = 600;
+const MIN_STEP = 0;
+
 const Slider = memo(() => {
   const [stopTimer, setStopTimer] = useState(false);
-  const SLIDE_WIDTH = 600;
-  const DURATION = 2500;
   const [step, setStep] = useState(0);
-  const STOP_DURATION = 4000;
 
   const slideArray = [
     { src: require('../../static/img1.jpg'), id: 1 },
@@ -23,7 +25,6 @@ const Slider = memo(() => {
   ];
 
   const MAX_STEP = slideArray.length - 1;
-  const MIN_STEP = 0;
 
   const autoMover = useCallback(() => {
     if (step <= (-MAX_STEP)) {
