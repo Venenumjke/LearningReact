@@ -4,8 +4,7 @@ import React, {
 } from 'react';
 import Button from '../Button';
 import SliderItem from '../SliderItem';
-import MotionDiv from '../MotionDiv';
-import { Main, Container } from './styles';
+import { Main, Container, MotionWrapper } from './styles';
 
 const STOP_DURATION = 4000;
 const DURATION = 2500;
@@ -71,9 +70,9 @@ const Slider = memo(() => {
     <Main>
       <Button onPress={moveLeftSliderItem} text="prev" />
       <Container>
-        <MotionDiv transform={step * SLIDE_WIDTH}>
+        <MotionWrapper style={{ transform: `translateX(${step * SLIDE_WIDTH}px)` }}>
           {slideArray.map((slide) => <SliderItem key={slide.id} src={slide.src} />)}
-        </MotionDiv>
+        </MotionWrapper>
       </Container>
       <Button onPress={moveRightSliderItem} text="next" />
     </Main>

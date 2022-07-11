@@ -16,3 +16,9 @@ display: flex;
 border-radius: 50px;
 overflow: hidden;
 `;
+
+export const MotionWrapper = styled.div`
+  display: flex;
+  transform: translateX(${(props) => props.transform || 0}px);
+  transition: 0.5s;
+  `;
