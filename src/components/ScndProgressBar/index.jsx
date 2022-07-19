@@ -1,9 +1,7 @@
-/* eslint-disable no-unused-vars */
 import React, {
-  memo, useCallback, useState, useEffect,
+  memo, useState, useEffect,
 } from 'react';
 import { Wrapper, Item, Container } from './style';
-import Button from '../Button';
 
 const FULLWIDTH = 100;
 

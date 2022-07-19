@@ -3,8 +3,7 @@ import { Header, HeaderTitle } from './styles';
 import TranslateTest from '../../components/TranslateTest';
 import Slider from '../../components/Slider';
 import ProgressBar from '../../components/ProgressBarContainer';
-import VertProgressBar from '../../components/VertProgressBar';
-import PBWithTimer from '../../components/PBWithTimer';
+import CountDown from '../../components/CountDown';
 
 function mainScreen() {
   return (
@@ -15,8 +14,7 @@ function mainScreen() {
       <TranslateTest />
       <Slider />
       <ProgressBar />
-      <VertProgressBar />
-      <PBWithTimer />
+      <CountDown />
     </>
   );
 }
