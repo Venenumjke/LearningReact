@@ -5,9 +5,8 @@ import React, {
 
 import Button from '../Button';
 import {
-  Container, ContainerInput, DescriptionDiv, Tittle, Status, StatusText,
+  Container, ContainerInput, DescriptionDiv, Tittle, Status, StatusText, InputWrapper,
 } from './styles';
-import TextInput from '../TextInput';
 
 const TranslateTest = memo(() => {
   const [isStart, setIsStart] = useState(false);
@@ -108,7 +107,7 @@ const TranslateTest = memo(() => {
         />
       </DescriptionDiv>
       <ContainerInput>
-        <TextInput
+        <InputWrapper
           ref={focusRef}
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}

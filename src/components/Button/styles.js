@@ -28,6 +28,10 @@ export const ButtonWrapper = styled.button`
         border: 1px solid teal;
         color: black;
     `}
+    ${({ bgRed }) => bgRed && css`
+        background-color: red;
+        border: 1px solid teal;   
+    `}
   `;
 
 export const ButtonText = styled.p`
